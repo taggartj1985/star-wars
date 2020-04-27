@@ -3,6 +3,8 @@
   <h4>{{character.name}}</h4>
   <p>Height:{{character.height | convertToMeters}}</p>
   <p>Birthday:{{character.birth_year | changeDate}}</p>
+  <p>Homeworld:{{homeworld.name}}</p>
+  <p>Terrain:{{homeworld.terrain}}</p>
   </div>
 </template>
 
@@ -14,7 +16,20 @@ export default {
   name: 'character-list-item',
   props: ['character'],
   data(){
-    return{}
+    return{
+      homeworld:[]
+    }
+  },
+
+  mounted() {
+    this.getHomeWorld();
+  },
+  methods: {
+    getHomeWorld: function() {
+      fetch(this.character.homeworld)
+      .then(response => response.json())
+      .then(data => this.homeworld = data);
+    },
   },
 
 
@@ -23,7 +38,7 @@ filters: {
       return heightInCm/100 + 'm';
     },
     changeDate: function (date) {
-    return moment(date).format("dd, MM do YYYY");
+    return moment(date).format("dd, MM do Y");
   },
   }
 

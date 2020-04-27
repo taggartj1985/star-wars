@@ -20,6 +20,7 @@ export default {
     return{
     }
   },
+
   components: {
     'character-list-item': CharacterListItem
   }
