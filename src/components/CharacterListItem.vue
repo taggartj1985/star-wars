@@ -1,5 +1,6 @@
 <template lang="html">
-  <li>{{character.name}}</li>
+  <h4>{{character.name}}</h4>
+  <!-- <p>{{character.height}}</p> -->
 </template>
 
 <script>

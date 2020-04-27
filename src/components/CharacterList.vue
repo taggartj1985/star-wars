@@ -1,15 +1,15 @@
 <template lang="html">
   <div>
     <h3>Character List</h3>
-    <ul>
-      <character-list-item v-for="(character, index) in characters" :key="index" :character="character"></character-list-item >
-    </ul>
+
+      <character-list-item v-for="(character, index) in characters" :character="character" :key="index" ></character-list-item >
+
   </div>
 </template>
 
 <script>
 
-import CharacterListItem from './CharacterListItem.vue'
+import CharacterListItem from './CharacterListItem.vue';
 
 export default {
   name: 'character-list',

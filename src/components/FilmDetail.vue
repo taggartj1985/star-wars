@@ -5,7 +5,8 @@
    <p>Release Date: {{film.release_date}}</p>
    <p>Director: {{film.director}}</p>
  <div>
-   <character-list v-if="characters.length" :characters="characters"></character-list>
+   <!-- <character-list v-if="characters.length" :characters="characters"></character-list> -->
+   <character-list :characters="characters"></character-list>
  </div>
  </div>
 </template>
