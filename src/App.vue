@@ -3,12 +3,15 @@
     <h1>Star Wars</h1>
     <div>
       <film-list :films="films"></film-list>
+      <film-detail v-if="selectedFilm" :film="selectedFilm"></film-detail>
     </div>
   </div>
 </template>
 
 <script>
 import FilmList from './components/FilmList.vue';
+import {eventBus} from './main.js';
+import  FilmDetail from './components/FilmDetail.vue';
 
 export default {
   data(){
@@ -19,12 +22,16 @@ export default {
   },
   components: {
     "film-list": FilmList,
+    "film-detail": FilmDetail,
   },
   mounted(){
     fetch('https://swapi.dev/api/films/')
     .then(res => res.json())
     .then(data => this.films = data.results)
 
+    eventBus.$on('film-selected', (film) => {
+          this.selectedFilm = film;
+        })
   },
 }
 
