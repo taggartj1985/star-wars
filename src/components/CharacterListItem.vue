@@ -1,6 +1,9 @@
 <template lang="html">
+<div class="">
   <h4>{{character.name}}</h4>
-  <!-- <p>{{character.height}}</p> -->
+  <p>Height:{{character.height}}</p>
+  <p>Birthday:{{character.birth_year}}</p>
+  </div>
 </template>
 
 <script>

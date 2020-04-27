@@ -2,7 +2,7 @@
   <div>
     <h3>Character List</h3>
 
-      <character-list-item v-for="(character, index) in characters" :character="character" :key="index" ></character-list-item >
+      <character-list-item v-for="(character, index) in characters" :character="character" :key="index" ></character-list-item>
 
   </div>
 </template>
