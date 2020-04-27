@@ -5,7 +5,7 @@
    <p>Release Date: {{film.release_date}}</p>
    <p>Director: {{film.director}}</p>
  <div>
-   <character-details v-if="characters.length" :characters="characters"></character-details>
+   <character-list v-if="characters.length" :characters="characters"></character-list>
  </div>
  </div>
 </template>
@@ -24,23 +24,23 @@ export default {
       characters:[]
     }
   },
-  // methods: {
-  // getCharacters(){
-  //   const characterPromises = this.film.characters.map((charactersUrl) => {
-  //     return fetch(charactersUrl).then(res => res.json())
-  //   })
-  //   Promise.all(characterPromises)
-  //   .then(data => this.characters = data);
-  //   }
-  // },
-  // mounted(){
-  //   this.getCharacters();
-  // },
-  // watch: {
-  //   film: function(){
-  //     this.getCharacters();
-  //   }
-  // }
+  methods: {
+  getCharacters(){
+    const characterPromises = this.film.characters.map((charactersUrl) => {
+      return fetch(charactersUrl).then(res => res.json())
+    })
+    Promise.all(characterPromises)
+    .then(data => this.characters = data);
+    }
+  },
+  mounted(){
+    this.getCharacters();
+  },
+  watch: {
+    film: function(){
+      this.getCharacters();
+    }
+  }
 }
 </script>
 
