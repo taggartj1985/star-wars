@@ -8,12 +8,20 @@
 </template>
 
 <script>
+// Vue.use(require('vue-moment'));
+const moment = require('moment');
 
 import CharacterListItem from './CharacterListItem.vue';
 
 export default {
   name: 'character-list',
   props: ['characters'],
+
+  data(){
+    return{
+      moment:moment,
+    }
+  },
   components: {
     'character-list-item': CharacterListItem
   }
