@@ -13,6 +13,7 @@ import FilmList from './components/FilmList.vue';
 import {eventBus} from './main.js';
 import  FilmDetail from './components/FilmDetail.vue';
 
+
 export default {
   data(){
     return {
