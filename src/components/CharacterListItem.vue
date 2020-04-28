@@ -2,7 +2,7 @@
 <div class="">
   <h4>{{character.name}}</h4>
   <p>Height:{{character.height | convertToMeters}}</p>
-  <p>Birthday:{{character.birth_year | changeDate}}</p>
+  <p>Birthday:{{character.birth_year}}</p>
   <p>Homeworld:{{homeworld.name}}</p>
   <p>Terrain:{{homeworld.terrain}}</p>
   </div>
@@ -38,7 +38,7 @@ filters: {
       return heightInCm/100 + 'm';
     },
     changeDate: function (date) {
-    return moment(date).format("dd, MM do Y");
+    return moment(date).format("dd, MMM do YYYY");
   },
   }
 

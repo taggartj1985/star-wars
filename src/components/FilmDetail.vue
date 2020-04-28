@@ -2,7 +2,7 @@
   <div>
    <h4>{{film.title}}</h4>
    <p>Episode: {{film.episode_id}}</p>
-   <p>Release Date: {{film.release_date}}</p>
+   <p>Release Date: {{film.release_date | changeDate}}</p>
    <p>Director: {{film.director}}</p>
  <div>
    <!-- <character-list v-if="characters.length" :characters="characters"></character-list> -->
@@ -12,7 +12,10 @@
 </template>
 
 <script>
-import CharacterList from './CharacterList.vue'
+
+import CharacterList from './CharacterList.vue';
+import moment from 'moment';
+
 export default {
   name: 'film-detail',
   props: ['film'],
@@ -41,6 +44,11 @@ export default {
     film: function(){
       this.getCharacters();
     }
+  },
+  filters:{
+    changeDate: function (date) {
+    return moment(date).format("DD MMM YYYY");
+   },
   }
 }
 </script>
